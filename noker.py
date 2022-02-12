@@ -78,7 +78,7 @@ async def on_guild_channel_create(channel):
         except:
          print("Failed to complete action. Webhook event is turned off, Turn it on retard.")
         
-client.run("TOKEN", bot=False)
+client.run(TOKEN, bot=False)
 
 ##customize it to your liking or whatever lmao 
 ##be sure to turn on the channel event before nuking
