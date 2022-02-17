@@ -1,3 +1,4 @@
+##Will be making it faster sooner or later by using taskpooling and aiohttp, be patient with me, i WILL not be adding any extra commands, maybe another project
 import discord
 from discord.ext import commands
 import threading
@@ -8,9 +9,11 @@ import threading
 from threading import Thread
 
 with open("userconfiguration.json", "r") as jsonfile:
-  TOKEN = json.load(jsonfile)[UserAccountToken]
+  readdata = json.load(jsonfile)
 
-client = commands.Bot(command_prefix="$", self_bot=True)
+TOKEN = readdata["UserAccountToken"]
+
+client = commands.Bot(command_prefix="z!", self_bot=True)
 niggurs = False
 
 @client.command()
@@ -24,12 +27,10 @@ async def nok(ctx):
 
 def chnl_spm():
   for i in range(8):
-    threads = []
-    nigeria = threading.Thread(target=mozzie)
-    nigeria.start()
+    threading.Thread(target=mozzie).start()
     
     
-def mozzie(ctx):
+async def mozzie(ctx):
   try:
       for i in range(500):
           wtf = ctx.message.guild
@@ -40,15 +41,14 @@ def mozzie(ctx):
  
 def role_spm():
   for i in range(8):
-    threads = []
     zimbawe = threading.Thread(target=pazzo)
     zimbawe.start()
 
     
-def pazzo():
+async def pazzo(ctx):
   for i in range(250):
    try:
-    await guild.create_role(name="anal")
+    await ctx.message.guild.create_role(name="anal")
    except:
     pass
   
